@@ -10,18 +10,29 @@ export default function Card({ bridge }: { bridge: BridgeType }) {
 
   const [statusCol, setStatusCol] = useState("#FCFCFC");
 
+  const [textCol, setTextCol] = useState(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    return mediaQuery.matches ? "#FCFCFC" : "#2D2D2D";
+  });
+  localStorage.setItem("textColor", textCol);
+
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = ({ matches }: MediaQueryListEvent) => {
       const newColor = matches ? "#2D2D2D" : "#F4F4F4";
       setBg(newColor);
       localStorage.setItem("bgColor", newColor);
+
+      const newTextColor = matches ? "#FCFCFC" : "#2D2D2D";
+      setTextCol(newTextColor);
+      localStorage.setItem("textColor", newTextColor);
     };
 
     if (bridge.status.status == "Available") {
       mediaQuery.addEventListener("change", handleChange);
 
       setStatusCol("#00D208");
+      
 
       return () => {
         mediaQuery.removeEventListener("change", handleChange);
@@ -31,11 +42,13 @@ export default function Card({ bridge }: { bridge: BridgeType }) {
     else if (bridge.status.status == "Raising Soon") {
       setBg("#F1AE00");
       setStatusCol("#FCFCFC");
+      setTextCol("#FCFCFC");
     } 
     
     else if (bridge.status.status !== "Available" && bridge.status.status !== "Raising Soon") {
       setBg("#E25656");
       setStatusCol("#FCFCFC");
+      setTextCol("#FCFCFC");
     }
   }, [bridge.status.status]);
 
@@ -45,8 +58,8 @@ export default function Card({ bridge }: { bridge: BridgeType }) {
       style={{ backgroundColor: bg! }}
     >
       <div className='flex justify-between'>
-        <h1 className='text-lg'>{bridge.name}</h1>
-        <h2 className='font-thin text-text2 dark:text-text-light'>
+        <h1 style={{ color: textCol }} className='text-lg'>{bridge.name}</h1>
+        <h2 style={{ color: textCol }} className='font-thin text-text2 dark:text-text-light'>
           {bridge.location.split("(")[0]}
         </h2>
       </div>

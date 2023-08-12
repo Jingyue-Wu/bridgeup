@@ -3,20 +3,20 @@ import { Outlet, NavLink } from "react-router-dom";
 function App() {
   return (
     <>
-      <div className='min-h-screen font-primary pt-[54px] bg-bg dark:bg-bg_d text-text dark:text-text-light pb-[93px]'>
+      <div className='min-h-screen font-primary pt-[34px] bg-bg dark:bg-bg_d text-text dark:text-text-light pb-[93px]'>
         <div>
           <Outlet />
         </div>
 
         {/* Nav bar */}
-        <div className='backdrop-blur-md bg-opacity-80 text-text-light m-auto flex justify-center fixed bottom-0 w-full h-[83px] border-t-[0.5px] border-border_light dark:border-text text-[10px] bg-bg dark:bg-bg_d2 dark:bg-opacity-75'>
-          <ul className='flex justify-center gap-20 mt-[5px]'>
+        <div className='backdrop-blur-md bg-opacity-80 text-text-light m-auto flex justify-center fixed bottom-0 w-full h-[88px] border-t-[0.5px] border-border_light dark:border-text text-[10px] bg-bg dark:bg-bg_d2 dark:bg-opacity-75'>
+          <ul className='flex justify-center gap-10 mt-[5px]'>
             <li>
               <NavLink
-                className={"flex flex-col items-center"}
+                className={"flex flex-col items-center w-20 h-20"}
                 style={({ isActive }) => ({
-                  color: isActive ? "#00D208" : "#757575",
-                  fill: isActive ? "#00D208" : "#757575",
+                  color: isActive ? "#00D208" : "#8C8C8C",
+                  fill: isActive ? "#00D208" : "#8C8C8C",
                 })}
                 to={""}
               >
@@ -29,10 +29,10 @@ function App() {
 
             <li>
               <NavLink
-                className={"flex flex-col items-center"}
+                className={"flex flex-col items-center w-20 h-20"}
                 style={({ isActive }) => ({
-                  color: isActive ? "#00D208" : "#757575",
-                  fill: isActive ? "#00D208" : "#757575",
+                  color: isActive ? "#00D208" : "#8C8C8C",
+                  fill: isActive ? "#00D208" : "#8C8C8C",
                 })}
                 to={"closures"}
               >
@@ -46,10 +46,10 @@ function App() {
 
             <li>
               <NavLink
-                className={"flex flex-col items-center"}
+                className={"flex flex-col items-center w-20 h-20"}
                 style={({ isActive }) => ({
-                  color: isActive ? "#00D208" : "#757575",
-                  fill: isActive ? "#00D208" : "#757575",
+                  color: isActive ? "#00D208" : "#8C8C8C",
+                  fill: isActive ? "#00D208" : "#8C8C8C",
                 })}
                 to={"about"}
               >
