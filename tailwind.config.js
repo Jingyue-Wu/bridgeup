@@ -4,9 +4,29 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
+  darkMode: 'media',
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        primary: "Sf-pro"
+      },
+    },
+    colors: {
+      'bg': '#FFFFFF',
+      'bg_d': '#121212',
+      'bg_d2': '#2E2D2D',
+      'card': '#F4F4F4',
+      'card_d': '#2D2D2D',
+      'primary': '#00D208',
+      'primary_d': '#81FF45',
+      'text': '#000000',
+      'text-light': '#FCFCFC',
+      'text2': '#5E5E5E',
+      'text2_d': '#D8D5D5',
+      'raised': '#E25656',
+      'warning': '#F1AE00',
+      'border_light': '#E6E6E6',
+    },
   },
   plugins: [],
 }

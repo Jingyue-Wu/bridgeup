@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+    font-family: Sf-pro;
+    src: 
+        url("fonts/sf-pro-text_regular.woff2") format("woff2");
+}
