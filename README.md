@@ -1,6 +1,6 @@
 # BridgeUp
 
-**[BridgeUp](https://bridgeup.vercel.app)** is a free to use app that provides the most accurate information on the Welland Canal schedule, to avoid those long delays while the bridges are raised.
+**[BridgeUp](https://bridgeup.vercel.app)** is a free to use app that provides the most accurate information on the Welland Canal schedule to help commuters avoid long delays while the bridges are raised.
 
 The data is provided by the St. Lawrence Seaway Management Corporation.
 Bridge status data is updated every 60 seconds, and closures are updated every 10 minutes.
