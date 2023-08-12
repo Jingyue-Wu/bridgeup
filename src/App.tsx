@@ -3,13 +3,15 @@ import { Outlet, NavLink } from "react-router-dom";
 function App() {
   return (
     <>
+      <div className='fixed z-50 left-0 top-[-400px] w-screen h-[400px] bg-bg dark:bg-bg_d '></div>
+
       <div className='min-h-screen font-primary pt-[34px] bg-bg dark:bg-bg_d text-text dark:text-text-light pb-[93px]'>
         <div>
           <Outlet />
         </div>
 
         {/* Nav bar */}
-        <div className='backdrop-blur-md bg-opacity-80 text-text-light m-auto flex justify-center fixed bottom-0 w-full h-[88px] border-t-[0.5px] border-border_light dark:border-text text-[10px] bg-bg dark:bg-bg_d2 dark:bg-opacity-75'>
+        <div className='backdrop-blur-md bg-opacity-75 text-text-light m-auto flex justify-center fixed bottom-0 w-full h-[88px] border-t-[0.5px] border-border_light dark:border-text text-[10px] bg-bg dark:bg-bg_d2 dark:bg-opacity-75'>
           <ul className='flex justify-center gap-10 mt-[5px]'>
             <li>
               <NavLink
@@ -55,9 +57,7 @@ function App() {
               >
                 <svg className={`w-6 h-6 mb-1 mt-1 `} viewBox='0 0 24 24'>
                   <path d='M12 17.75a.75.75 0 0 0 .75-.75v-6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75ZM12 7a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z' />
-                  <path
-                    d='M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12 17.937 22.75 12 22.75 1.25 17.937 1.25 12ZM12 2.75a9.25 9.25 0 1 0 0 18.5 9.25 9.25 0 0 0 0-18.5Z'
-                  />
+                  <path d='M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12 17.937 22.75 12 22.75 1.25 17.937 1.25 12ZM12 2.75a9.25 9.25 0 1 0 0 18.5 9.25 9.25 0 0 0 0-18.5Z' />
                 </svg>
                 <h1 className='text-center'>About</h1>
               </NavLink>
@@ -65,6 +65,8 @@ function App() {
           </ul>
         </div>
       </div>
+
+      <div className='fixed z-50 left-0 bottom-0 w-screen h-[400px] bg-bg dark:bg-bg_d '></div>
     </>
   );
 }

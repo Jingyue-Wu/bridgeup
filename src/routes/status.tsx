@@ -29,7 +29,7 @@ export default function Status() {
   return (
     <>
       <div className='lg:m-auto lg:max-w-[40%] m-[5%]'>
-        <h1 className='font-[1000] text-[28px] pt-2 my-5'>Bridge Status</h1>
+        <h1 className='font-bold text-[28px] pt-2 my-5'>Bridge Status</h1>
 
         {bridges.map((bridge) => (
           <Card bridge={bridge} key={bridge.id} />

@@ -10,7 +10,7 @@
         url("/fonts/sf-pro-text_regular.ttf") format("truetype");
 }
 
-body {
+. {
     font-family: Sf-pro;
 }
 
