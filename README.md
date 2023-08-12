@@ -5,7 +5,7 @@
 The data is provided by the St. Lawrence Seaway Management Corporation.
 Bridge status data is updated every 60 seconds, and closures are updated every 10 minutes.
 
-![image](https://github.com/Jingyue-Wu/bridge-up/assets/75918217/776300d8-cbb7-4db6-85af-b617e5c62488)
+![image](https://github.com/Jingyue-Wu/bridge-up/assets/75918217/786dcad8-81e8-462e-94e6-8465c0a6cc7c)
 
 ## Install
 
