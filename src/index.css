@@ -4,7 +4,11 @@
 
 
 @font-face {
+    font-family: "Sf-pro";
+    src:
+        local("Sf-pro"), url("/fonts/sf-pro-text_regular.woff2") format("woff2");
+}
+
+body {
     font-family: Sf-pro;
-    src: 
-    local('Sf-pro'), url("./fonts/sf-pro-text_regular.woff2") format("woff2");
 }

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 export default function Card({ bridge }: { bridge: BridgeType }) {
   const [bg, setBg] = useState(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    return mediaQuery.matches ?  "#F4F4F4":"#2D2D2D";
+    return mediaQuery.matches ? "#2D2D2D" : "#F4F4F4";
   });
   localStorage.setItem("bgColor", bg);
 
@@ -22,26 +22,26 @@ export default function Card({ bridge }: { bridge: BridgeType }) {
       mediaQuery.addEventListener("change", handleChange);
 
       setStatusCol("#00D208");
+
       return () => {
         mediaQuery.removeEventListener("change", handleChange);
       };
-    } else if (bridge.status.status == "Raising Soon") {
-      const newColor = "#F1AE00";
-      setBg(newColor);
+    } 
+    
+    else if (bridge.status.status == "Raising Soon") {
+      setBg("#F1AE00");
       setStatusCol("#FCFCFC");
-    } else if (
-      bridge.status.status !== "Available" &&
-      bridge.status.status !== "Raising Soon"
-    ) {
-      const newColor = "#E25656";
-      setBg(newColor);
+    } 
+    
+    else if (bridge.status.status !== "Available" && bridge.status.status !== "Raising Soon") {
+      setBg("#E25656");
       setStatusCol("#FCFCFC");
     }
   }, [bridge.status.status]);
 
   return (
     <div
-      className='border-0 my-5 p-5 rounded-[13px]'
+      className='border-0 my-5 p-5 rounded-[13px] bg-card dark:bg-card_d'
       style={{ backgroundColor: bg! }}
     >
       <div className='flex justify-between'>
