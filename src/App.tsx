@@ -3,7 +3,7 @@ import { Outlet, NavLink } from "react-router-dom";
 function App() {
   return (
     <>
-      <div className='fixed z-50 left-0 top-[-400px] w-screen h-[400px] bg-bg dark:bg-bg_d '></div>
+      <div className='fixed top-0 left-0 w-screen h-[80px] bg-bg dark:bg-bg_d z-50 invisible md:visible'></div>
 
       <div className='min-h-screen font-primary pt-[34px] bg-bg dark:bg-bg_d text-text dark:text-text-light pb-[93px]'>
         <div>
@@ -66,7 +66,7 @@ function App() {
         </div>
       </div>
 
-      <div className='fixed z-50 left-0 bottom-0 w-screen h-[400px] bg-bg dark:bg-bg_d '></div>
+      <div className='fixed bottom-0 left-0 w-screen h-[80px] bg-bg dark:bg-bg_d z-50 invisible md:visible'></div>
     </>
   );
 }
