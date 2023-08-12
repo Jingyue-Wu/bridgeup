@@ -29,7 +29,7 @@ export default function Closures() {
   return (
     <>
       <div className='lg:m-auto lg:max-w-[40%] m-[5%]'>
-        <h1 className='text-3xl pt-2 my-5 font-extrabold'>Closures</h1>
+        <h1 className='text-3xl pt-2 my-5 font-semibold'>Closures</h1>
         {closures.length !== 0 ? (
           closures.map((closure) => (
             <ClosureCard closure={closure} key={closure.id} />
