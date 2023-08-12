@@ -2,9 +2,11 @@ import { BridgeType } from "../../types";
 import { useState, useEffect } from "react";
 
 export default function Card({ bridge }: { bridge: BridgeType }) {
-  const [bg, setBg] = useState(
-    () => localStorage.getItem("bgColor") || "#F4F4F4"
-  );
+  const [bg, setBg] = useState(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    return mediaQuery.matches ? "#2D2D2D" : "#F4F4F4";
+  });
+  localStorage.setItem("bgColor", bg);
 
   const [statusCol, setStatusCol] = useState("#FCFCFC");
 
@@ -18,7 +20,7 @@ export default function Card({ bridge }: { bridge: BridgeType }) {
 
     if (bridge.status.status == "Available") {
       mediaQuery.addEventListener("change", handleChange);
-      
+
       setStatusCol("#00D208");
       return () => {
         mediaQuery.removeEventListener("change", handleChange);
@@ -26,12 +28,14 @@ export default function Card({ bridge }: { bridge: BridgeType }) {
     } else if (bridge.status.status == "Raising Soon") {
       const newColor = "#F1AE00";
       setBg(newColor);
+      setStatusCol("#FCFCFC");
     } else if (
       bridge.status.status !== "Available" &&
       bridge.status.status !== "Raising Soon"
     ) {
       const newColor = "#E25656";
       setBg(newColor);
+      setStatusCol("#FCFCFC");
     }
   }, [bridge.status.status]);
 
@@ -42,7 +46,7 @@ export default function Card({ bridge }: { bridge: BridgeType }) {
     >
       <div className='flex justify-between'>
         <h1 className='text-lg'>{bridge.name}</h1>
-        <h2 className='font-thin text-text2'>
+        <h2 className='font-thin text-text2 dark:text-text-light'>
           {bridge.location.split("(")[0]}
         </h2>
       </div>

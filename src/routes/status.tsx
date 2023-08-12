@@ -6,7 +6,8 @@ export default function Status() {
   const [bridges, setBridges] = useState<BridgeType[]>([]);
 
   function fetchData() {
-    const endpoint = "https://bridge-up-api.vercel.app/api/bridges";
+    // const endpoint = "https://bridge-up-api.vercel.app/api/bridges";
+    const endpoint = "http://localhost:3000/api/bridges";
     fetch(endpoint)
       .then((response) => response.json())
       .then((data) => {
@@ -27,7 +28,7 @@ export default function Status() {
 
   return (
     <>
-      <div className='lg:flex lg:flex-col lg:items-center lg:justify-center lg:(flex-row) m-[5%]'>
+      <div className='lg:m-auto lg:max-w-[40%] m-[5%]'>
         <h1 className='font-[1000] text-[28px] pt-2 my-5'>Bridge Status</h1>
 
         {bridges.map((bridge) => (

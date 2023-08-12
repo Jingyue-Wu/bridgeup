@@ -10,9 +10,9 @@ export default defineConfig({
     registerType: "prompt",
     includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
     manifest: {
-      name: "Weather Ups",
-      short_name: "Weathe Ups",
-      description: "An app that can show weather forecast for your city.",
+      name: "BridgeUp",
+      short_name: "BridgeUp",
+      description: "View the latest Welland Canal Bridge Statuses at a glance.",
       icons: [
         {
           src: "/android-chrome-192x192.png",
@@ -37,8 +37,8 @@ export default defineConfig({
           purpose: "any maskable",
         },
       ],
-      theme_color: "#171717",
-      background_color: "#e8ebf2",
+      theme_color: "#00D208",
+      background_color: "#FFFFFF",
       display: "standalone",
       scope: "/",
       start_url: "/",
