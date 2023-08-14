@@ -10,9 +10,26 @@
         url("/fonts/sf-pro-text_regular.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "Sf-pro-bold";
+    src: local("Sf-pro-bold"),
+        url("/fonts/sf-pro-text-bold.woff") format("woff");
+}
+
 . {
     font-family: Sf-pro;
 }
+
+body{
+    background-color: #FFFFFF
+}
+
+
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: #121212;
+    }
+  }
 
 input,
 textarea,

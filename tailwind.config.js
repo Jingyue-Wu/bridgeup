@@ -8,15 +8,16 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        primary: "Sf-pro"
+        primary: "Sf-pro",
+        title: "Sf-pro-bold",
       },
     },
     colors: {
       'bg': '#FFFFFF',
       'bg_d': '#121212',
-      'bg_d2': '#2E2D2D',
+      'bg_d2': '#212121',
       'card': '#F4F4F4',
-      'card_d': '#2D2D2D',
+      'card_d': '#212121',
       'primary': '#00D208',
       'primary_d': '#81FF45',
       'text': '#000000',

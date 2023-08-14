@@ -9,7 +9,7 @@ function App() {
         </div>
 
         {/* Nav bar */}
-        <div className='backdrop-blur-md bg-opacity-75 text-text-light m-auto flex justify-center fixed bottom-0 w-full h-[88px] border-t-[0.5px] border-border_light dark:border-text text-[10px] bg-bg dark:bg-bg_d2 dark:bg-opacity-75'>
+        <div className='backdrop-blur-md bg-opacity-70 text-text-light m-auto flex justify-center fixed bottom-0 w-full h-[88px] border-t-[0.5px] border-border_light dark:border-text text-[10px] bg-bg dark:bg-bg_d2 dark:bg-opacity-70'>
           <ul className='flex justify-center gap-10 mt-[5px]'>
             <li>
               <NavLink
