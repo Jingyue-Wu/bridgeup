@@ -2,7 +2,7 @@ export default function About() {
   return (
     <>
       <div className='lg:m-auto lg:max-w-[40%] m-[5%]'>
-        <h1 className='text-3xl pt-2 my-5 font-title'>About</h1>
+        <h1 className='text-[32px] pt-1 my-5 font-title'>About</h1>
 
         <div className='border-0 my-5 p-5 rounded-[13px] bg-card dark:bg-card_d'>
           <h2 className=' text-sm font-thin text-text2 dark:text-text2_d mb-5'>

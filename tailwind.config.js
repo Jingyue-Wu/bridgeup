@@ -15,7 +15,7 @@ export default {
     colors: {
       'bg': '#FFFFFF',
       'bg_d': '#121212',
-      'bg_d2': '#212121',
+      'bg_d2': '#2D2D2D',
       'card': '#F4F4F4',
       'card_d': '#212121',
       'primary': '#00D208',

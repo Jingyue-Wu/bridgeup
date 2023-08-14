@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 export default function Card({ bridge }: { bridge: BridgeType }) {
   const [bg, setBg] = useState(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    return mediaQuery.matches ? "#212121" : "#F4F4F4";
+    return mediaQuery.matches ? "#2D2D2D" : "#F4F4F4";
   });
   localStorage.setItem("bgColor", bg);
 
@@ -12,18 +12,18 @@ export default function Card({ bridge }: { bridge: BridgeType }) {
 
   const [textCol, setTextCol] = useState(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    return mediaQuery.matches ? "#FCFCFC" : "#212121";
+    return mediaQuery.matches ? "#FCFCFC" : "#2D2D2D";
   });
   localStorage.setItem("textColor", textCol);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = ({ matches }: MediaQueryListEvent) => {
-      const newColor = matches ? "#212121" : "#F4F4F4";
+      const newColor = matches ? "#2D2D2D" : "#F4F4F4";
       setBg(newColor);
       localStorage.setItem("bgColor", newColor);
 
-      const newTextColor = matches ? "#FCFCFC" : "#212121";
+      const newTextColor = matches ? "#FCFCFC" : "#2D2D2D";
       setTextCol(newTextColor);
       localStorage.setItem("textColor", newTextColor);
     };
