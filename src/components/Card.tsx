@@ -67,8 +67,8 @@ export default function Card({ bridge }: { bridge: BridgeType }) {
         </h2>
       </div>
       <div className='flex justify-between items-end'>
-        
-        <h1 style={{ color: statusCol }} className='text-xl mt-5 font-title'>
+
+        <h1 style={{ color: statusCol }} className='text-xl mt-5 font-semi'>
           {/* font-semibold */}
           {bridge.status.status}
         </h1>

@@ -16,6 +16,12 @@
         url("/fonts/sf-pro-text-bold.woff") format("woff");
 }
 
+@font-face {
+    font-family: "Sf-pro-semi";
+    src: local("Sf-pro-semi"),
+        url("/fonts/sf-pro-text-semibold.woff2") format("woff2");
+}
+
 . {
     font-family: Sf-pro;
 }

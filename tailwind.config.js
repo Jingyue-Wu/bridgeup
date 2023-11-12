@@ -10,6 +10,7 @@ export default {
       fontFamily: {
         primary: "Sf-pro",
         title: "Sf-pro-bold",
+        semi: "Sf-pro-semi",
       },
     },
     colors: {
