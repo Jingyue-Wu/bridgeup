@@ -19,12 +19,12 @@ export default function About() {
         <div className='border-0 my-5 p-5 rounded-[13px] bg-card dark:bg-card_d'>
           <h1 className='text-xl mb-5'>Download on iOS and Android</h1>
 
-          <h2 className=' text-md font-thin mb-5 text-text2 dark:text-text2_d'>
+          <h2 className=' text-sm font-thin mb-5 text-text2 dark:text-text2_d'>
             <span className='font-title'>To install from Safari:</span> Tap the
             share icon, scroll down, and tap "Add to Home Screen".
           </h2>
 
-          <h2 className=' text-md font-thin mb-5 text-text2 dark:text-text2_d'>
+          <h2 className=' text-sm font-thin mb-5 text-text2 dark:text-text2_d'>
             <span className='font-title'>To install from Chrome:</span> Tap the
             three dots in the top-right of the screen, then tap "Add to Home
             Screen".

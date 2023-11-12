@@ -33,7 +33,6 @@ export default function Card({ bridge }: { bridge: BridgeType }) {
 
       setStatusCol("#00D208");
       
-
       return () => {
         mediaQuery.removeEventListener("change", handleChange);
       };
@@ -64,7 +63,7 @@ export default function Card({ bridge }: { bridge: BridgeType }) {
         </h2>
       </div>
       <div className='flex justify-between items-end'>
-        <h1 style={{ color: statusCol }} className='text-xl font-semibold mt-5'>
+        <h1 style={{ color: statusCol }} className='text-xl mt-5 font-title'> {/* font-semibold */}
           {bridge.status.status}
         </h1>
 
