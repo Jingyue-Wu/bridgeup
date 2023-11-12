@@ -31,10 +31,10 @@ export default defineConfig({
           purpose: "apple touch icon",
         },
         {
-          src: "/maskable_icon.png",
-          sizes: "225x225",
+          src: "/android-chrome-512x512.png",
+          sizes: "512x512",
           type: "image/png",
-          purpose: "any maskable",
+          purpose: "any maskable"
         },
       ],
       theme_color: "#121212",
