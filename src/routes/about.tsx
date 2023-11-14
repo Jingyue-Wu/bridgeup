@@ -19,6 +19,12 @@ export default function About() {
         <div className='border-0 my-5 p-5 rounded-[13px] bg-card dark:bg-card_d'>
           <h1 className='text-xl mb-5'>Download on iOS and Android</h1>
 
+          
+          <h2 className=' text-sm font-thin mb-5 text-text2 dark:text-text2_d'>
+            <span className='font-title'>Available on the Google Play store for Android.</span>
+          </h2>
+
+
           <h2 className=' text-sm font-thin mb-5 text-text2 dark:text-text2_d'>
             <span className='font-title'>To install from Safari:</span> Tap the
             share icon, scroll down, and tap "Add to Home Screen".
@@ -35,6 +41,7 @@ export default function About() {
             The progressive web app will automatically download to your home
             screen
           </h2>
+          
         </div>
 
         <div className='border-0 my-5 p-5 rounded-[13px] bg-card dark:bg-card_d'>
@@ -47,6 +54,13 @@ export default function About() {
           <h2 className=' text-sm font-thin text-text2 dark:text-text2_d'>
             Bridge status data is updated every 60 seconds, and closures are
             updated every 10 minutes.
+          </h2>
+        </div>
+
+        <div className='border-0 my-5 p-5 rounded-[13px] bg-card dark:bg-card_d'>
+          <h1 className='text-xl mb-5'>Privacy Policy</h1>
+          <h2 className=' text-sm font-thin text-text2 dark:text-text2_d'>
+            BridgeUp does not collect or store any of your data, or track your usage.
           </h2>
         </div>
       </div>
