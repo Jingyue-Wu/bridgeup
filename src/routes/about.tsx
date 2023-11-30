@@ -37,7 +37,7 @@ export default function About() {
           <h2 className=' text-sm font-thin text-text2 dark:text-text2_d'>
             {" "}
             The progressive web app will automatically download to your home
-            screen
+            screen.
           </h2>
         </div>
 
