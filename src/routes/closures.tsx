@@ -7,7 +7,6 @@ export default function Closures() {
 
   function fetchData() {
     const endpoint = "https://bridge-up-api.vercel.app/api/closures";
-    // const endpoint = "http://localhost:3000/api/closures";
     fetch(endpoint)
       .then((response) => response.json())
       .then((data) => {

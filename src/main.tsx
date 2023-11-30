@@ -7,6 +7,9 @@ import ErrorPage from "./routes/errorPage.tsx";
 import Status from "./routes/status.tsx";
 import Closures from "./routes/closures.tsx";
 import About from "./routes/about.tsx";
+import PrivacyPolicy from "./routes/privacyPolicy.tsx";
+import { Analytics } from '@vercel/analytics/react';
+
 
 const router = createBrowserRouter([
   {
@@ -26,6 +29,10 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
+      {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy />,
+      },
     ],
   },
 ]);
@@ -33,5 +40,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <Analytics />
   </React.StrictMode>
 );

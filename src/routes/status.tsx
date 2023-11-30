@@ -7,7 +7,6 @@ export default function Status() {
 
   function fetchData() {
     const endpoint = "https://bridge-up-api.vercel.app/api/bridges";
-    // const endpoint = "http://localhost:3000/api/bridges";
     fetch(endpoint)
       .then((response) => response.json())
       .then((data) => {
