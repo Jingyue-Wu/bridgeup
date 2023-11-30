@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.vercel.bridgeup.twa",
+      "sha256_cert_fingerprints": [
+        "7E:CF:4C:D1:6E:18:4E:AD:ED:73:2A:26:18:DF:D8:12:B2:FA:B7:2B:32:14:75:45:50:D6:50:4B:FE:77:E7:D9"
+      ]
+    }
+  }
+]
