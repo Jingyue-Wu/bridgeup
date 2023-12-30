@@ -1,12 +1,24 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
-      "package_name": "app.vercel.bridgeup.twa",
+      "package_name": "localhost_5173.twa",
       "sha256_cert_fingerprints": [
-        "7E:CF:4C:D1:6E:18:4E:AD:ED:73:2A:26:18:DF:D8:12:B2:FA:B7:2B:32:14:75:45:50:D6:50:4B:FE:77:E7:D9"
+        "7B:F0:A8:FF:4C:FA:7E:F8:95:AF:19:9E:D6:58:7D:9B:54:29:44:E7:FC:05:3C:A5:A4:A0:82:2B:07:75:14:72",
+        "43:9D:04:0F:77:EF:C7:4D:03:6A:30:7A:B7:03:9C:A5:63:E9:25:56:22:CE:0C:6D:AA:79:4E:82:A8:4F:C3:DD"
       ]
+    }
+  },
+  {
+    "relation": [
+      "check_validation"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "localhost_5173.twa"
     }
   }
 ]
