@@ -29,13 +29,8 @@ export interface BridgeType {
 
   export interface ClosureType {
     id: number
-    message_id: number
-    time_string: string
-    purpose: string
-    closed_for: string
-    start_date: string
-    end_date: string
     bridge_id: number
-    created_at: string
-    updated_at: string
+    time_string: string
+    closed_for: string
+    purpose: string
   }

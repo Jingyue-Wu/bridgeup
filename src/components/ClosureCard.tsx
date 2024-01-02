@@ -1,5 +1,4 @@
 import { ClosureType } from "../../types";
-// import { useState, useEffect } from "react";
 
 export default function ClosureCard({ closure }: { closure: ClosureType }) {
   const bridges: Record<number, string> = {
