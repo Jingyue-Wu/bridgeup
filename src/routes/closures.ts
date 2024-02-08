@@ -39,7 +39,6 @@ async function scrapeClosures() {
 
       return rawTxt2
     } catch (e) {
-      console.error("An error has occurred getting closures")
       return null
     }
   }
@@ -91,7 +90,7 @@ async function scrapeClosures() {
   }
 
   browser.close()
-  
+
   console.log({ closures: closureList })
   closures = closureList
   //   return { closures: closureList }
@@ -104,7 +103,7 @@ scrapeClosures()
 setInterval(scrapeClosures, 60000)
 
 router.get("/", (req, res) => {
-  res.json(scrapeClosures)
+  res.json(closures)
 })
 
 module.exports = router
