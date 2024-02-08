@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom"
 
 export default function NavIcon(props: {
-  isActive: boolean;
-  icon: string;
-  to: string;
-  label: string;
+  isActive: boolean
+  icon: string
+  to: string
+  label: string
 }) {
   return (
     <NavLink
@@ -13,7 +13,7 @@ export default function NavIcon(props: {
         color: isActive ? "#00D208" : "#757575",
       })}
     >
-      <div className='flex flex-col items-center'>
+      <div className="flex flex-col items-center">
         <img
           src={props.icon}
           alt={props.label}
@@ -32,5 +32,5 @@ export default function NavIcon(props: {
         </span>
       </div>
     </NavLink>
-  );
+  )
 }
