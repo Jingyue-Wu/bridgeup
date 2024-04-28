@@ -19,8 +19,8 @@ app.get("/", (req, res) => {
 const statusRouter = require("./routes/status")
 app.use("/status", statusRouter)
 
-const closuresRouter = require("./routes/closures")
-app.use("/closures", closuresRouter)
+// const closuresRouter = require("./routes/closures")
+// app.use("/closures", closuresRouter)
 
 const mapRouter = require("./routes/map")
 app.use("/map", mapRouter)

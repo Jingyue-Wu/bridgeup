@@ -11,6 +11,8 @@ interface Ship {
   latitude: number
   longitude: number
   name: string
+  sog: number
+  heading: number
 }
 
 let shipList: Ship[] = []
@@ -40,6 +42,8 @@ socket.onmessage = (event) => {
     latitude: positionReport.Latitude,
     longitude: positionReport.Longitude,
     name: aisMessage.MetaData.ShipName,
+    sog: positionReport.Sog,
+    heading: positionReport.TrueHeading,
   }
   updateList(ship)
 }
@@ -51,6 +55,8 @@ function updateList(newShip: Ship) {
       inList = true
       shipList[i].latitude = newShip.latitude
       shipList[i].longitude = newShip.longitude
+      shipList[i].sog = newShip.sog
+      shipList[i].heading = newShip.heading
     }
   }
 
