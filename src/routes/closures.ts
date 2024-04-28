@@ -93,14 +93,11 @@ async function scrapeClosures() {
 
   console.log({ closures: closureList })
   closures = closureList
-  //   return { closures: closureList }
 }
 
 scrapeClosures()
 
-// const data = await scrapeClosures()
-
-setInterval(scrapeClosures, 60000)
+setInterval(scrapeClosures, 600000)
 
 router.get("/", (req, res) => {
   res.json(closures)
