@@ -13,6 +13,7 @@ interface Ship {
   name: string
   sog: number
   heading: number
+  lastUpdated: number
 }
 
 let shipList: Ship[] = []
@@ -44,6 +45,7 @@ socket.onmessage = (event) => {
     name: aisMessage.MetaData.ShipName,
     sog: positionReport.Sog,
     heading: positionReport.TrueHeading,
+    lastUpdated: Date.now(),
   }
   updateList(ship)
 }
@@ -57,13 +59,35 @@ function updateList(newShip: Ship) {
       shipList[i].longitude = newShip.longitude
       shipList[i].sog = newShip.sog
       shipList[i].heading = newShip.heading
+      shipList[i].lastUpdated = newShip.lastUpdated
     }
   }
 
   if (!inList) {
     shipList.push(newShip)
     console.log(shipList)
+
+    let currentdate = new Date()
+    let datetime =
+      "Last Sync: " +
+      currentdate.getDay() +
+      "/" +
+      currentdate.getMonth() +
+      "/" +
+      currentdate.getFullYear() +
+      " @ " +
+      currentdate.getHours() +
+      ":" +
+      currentdate.getMinutes() +
+      ":" +
+      currentdate.getSeconds()
+
+    console.log(datetime)
   }
+
+  shipList = shipList.filter((ship) => {
+    return Date.now() - ship.lastUpdated <= 3600000
+  })
 }
 
 router.get("/", (req, res) => {
