@@ -20,16 +20,13 @@ export default function About() {
           <h1 className="text-xl mb-5">Download on iOS and Android</h1>
 
           <h2 className="text-sm font-thin mb-5 text-text2 dark:text-text2_d">
-            <span className="font-title">
-              Available on the{" "}
-              <a
-                className="underline"
-                href="https://play.google.com/store/apps/details?id=localhost_5173.twa&hl=en&gl=US"
-              >
-                Google Play Store
-              </a>{" "}
-              for Android.
-            </span>
+            <a href="https://play.google.com/store/apps/details?id=localhost_5173.twa&hl=en&gl=US">
+              <div className="border-0 p-3 rounded-[10px] dark:bg-text2 bg-bg text-center">
+                <h1 className="text-md">
+                  Available on the Google Play Store for Android
+                </h1>
+              </div>
+            </a>
           </h2>
 
           <h2 className="text-sm font-thin mb-5 text-text2 dark:text-text2_d">
@@ -46,7 +43,7 @@ export default function About() {
           <h2 className="text-sm font-thin text-text2 dark:text-text2_d">
             {" "}
             The progressive web app will automatically download to your home
-            screen from your browser!
+            screen from your browser.
           </h2>
         </div>
 
@@ -57,9 +54,14 @@ export default function About() {
             Corporation.
           </h2>
 
-          <h2 className="text-sm font-thin text-text2 dark:text-text2_d">
+          <h2 className="text-sm font-thin mb-5 text-text2 dark:text-text2_d">
             Bridge status data is updated every 60 seconds, and closures are
             updated every 10 minutes.
+          </h2>
+
+          <h2 className="text-sm font-thin text-text2 dark:text-text2_d">
+            Time estimates are calculated based on available public data.
+            Estimates are not guaranteed to be accurate.
           </h2>
         </div>
 

@@ -8,7 +8,6 @@ export interface BridgeType {
   created_at: string
   updated_at: string
   status: Status
-  closures: any[]
 }
 
 export interface Status {
@@ -16,14 +15,10 @@ export interface Status {
   status: string
   status_type: number
   valid_date: boolean
-  next: any
-  subsequent: any
   requests: number
   bridge_id: number
   created_at: string
   updated_at: string
-  next_direction: any
-  subsequent_direction: any
 }
 
 export interface ClosureType {
@@ -32,4 +27,33 @@ export interface ClosureType {
   time_string: string
   closed_for: string
   purpose: string
+}
+
+export interface ShipType {
+  id: number
+  latitude: number
+  longitude: number
+  name: string
+  sog: number
+  heading: number
+}
+
+export interface MarkerType {
+  geocode: number[]
+  popUp: string
+  id: number
+  heading: number
+  sog: number
+}
+
+export interface StatusShip {
+  latitude: number
+  longitude: number
+  speed: number
+  heading: number
+}
+
+export interface CardType {
+  bridge: BridgeType
+  shipData: StatusShip[]
 }
