@@ -60,7 +60,7 @@ async function scrapeStatus() {
         await page.goto(endpoint2)
       } else {
         // north bridges
-        await page.goto(endpoint1)
+        await page.goto(endpoint2)
       }
 
       const [el] = await page.$x(xpath)
