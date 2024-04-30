@@ -25,110 +25,108 @@ function getTime() {
   return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}${offsetHours}:${offsetMinutes}`
 }
 
-// async function scrapeStatus() {
-//   const endpoint =
-//     "https://seaway-greatlakes.com/bridgestatus/detailsnai?key=BridgeSCT"
+async function scrapeStatus() {
+  const endpoint =
+    "https://seaway-greatlakes.com/bridgestatus/detailsnai?key=BridgeSCT"
 
-//   const browser = await puppeteer.launch({
-//     args: [
-//       ...chromium.args,
-//       "--hide-scrollbars",
-//       "--disable-web-security",
-//       "--no-sandbox",
-//       "--disable-setuid-sandbox",
-//     ],
-//     defaultViewport: chromium.defaultViewport,
-//     executablePath: await chromium.executablePath(
-//       `https://github.com/Sparticuz/chromium/releases/download/v116.0.0/chromium-v116.0.0-pack.tar`
-//     ),
-//     headless: chromium.headless,
-//     // headless: 'new',
-//     ignoreHttpsErrors: true,
-//   })
+  const browser = await puppeteer.launch({
+    args: [
+      ...chromium.args,
+      "--hide-scrollbars",
+      "--disable-web-security",
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+    ],
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath(
+      `https://github.com/Sparticuz/chromium/releases/download/v116.0.0/chromium-v116.0.0-pack.tar`
+    ),
+    headless: chromium.headless,
+    // headless: 'new',
+    ignoreHttpsErrors: true,
+  })
 
-//   async function getStatus(xpath: string) {
-//     try {
-//       const page = await browser.newPage()
-//       await page.goto(endpoint)
+  async function getStatus(xpath: string) {
+    try {
+      const page = await browser.newPage()
+      await page.goto(endpoint)
 
-//       const [el2] = await page.$x(xpath)
-//       const txt2 = await el2.getProperty("innerText")
-//       const rawTxt2 = await txt2.jsonValue()
+      const [el2] = await page.$x(xpath)
+      const txt2 = await el2.getProperty("innerText")
+      const rawTxt2 = await txt2.jsonValue()
 
-//       return rawTxt2
-//     } catch (e) {
-//       return null
-//     }
-//   }
+      return rawTxt2
+    } catch (e) {
+      return null
+    }
+  }
 
-//   let statusList: {
-//     id: number
-//     name: string
-//     location: string
-//     status: string
-//   }[] = []
+  let statusList: {
+    id: number
+    name: string
+    location: string
+    status: string
+  }[] = []
 
-//   let fetchStatus = true
-//   let i = 1
+  let fetchStatus = true
+  let i = 1
 
-//   while (fetchStatus) {
-//     let statusValue = await getStatus(
-//       `//*[@id="grey_box"]/tbody/tr[${i + 1}]/td/table/tbody/tr/td[2]/p[2]/span`
-//     )
+  while (fetchStatus) {
+    let statusValue = await getStatus(
+      `//*[@id="grey_box"]/tbody/tr[${i + 1}]/td/table/tbody/tr/td[2]/p[2]/span`
+    )
 
-//     if (status != null) {
-//       const bridgeNames: Record<number, string> = {
-//         1: "1",
-//         2: "3A",
-//         3: "4",
-//         4: "5",
-//         5: "11",
-//         6: "19",
-//         7: "19A",
-//         8: "21",
-//       }
+    if (statusValue != null) {
+      const bridgeNames: Record<number, string> = {
+        1: "1",
+        2: "3A",
+        3: "4",
+        4: "5",
+        5: "11",
+        6: "19",
+        7: "19A",
+        8: "21",
+      }
 
-//       const locations: Record<number, string> = {
-//         1: "Lakeshore Rd.",
-//         2: "Carlton St.",
-//         3: "Queenston St.",
-//         4: "Glendale Ave.",
-//         5: "Highway 20",
-//         6: "Main St.",
-//         7: "Mellanby Ave.",
-//         8: "Clarence St.",
-//       }
+      const locations: Record<number, string> = {
+        1: "Lakeshore Rd.",
+        2: "Carlton St.",
+        3: "Queenston St.",
+        4: "Glendale Ave.",
+        5: "Highway 20",
+        6: "Main St.",
+        7: "Mellanby Ave.",
+        8: "Clarence St.",
+      }
 
-//       console.log(status)
+      console.log(status)
 
-//       let jsonData = {
-//         id: i,
-//         name: `Bridge ${bridgeNames[i]}`,
-//         location: locations[i],
-//         status: statusValue,
-//       }
+      let jsonData = {
+        id: i,
+        name: `Bridge ${bridgeNames[i]}`,
+        location: locations[i],
+        status: statusValue,
+      }
 
-//       statusList.push(jsonData)
-//     } else {
-//       fetchStatus = false
-//     }
-//     i++
-//   }
+      statusList.push(jsonData)
+    } else {
+      fetchStatus = false
+    }
+    i++
+  }
 
-//   browser.close()
+  browser.close()
 
-//   console.log({ statuses: statusList })
-//   status.bridges = statusList
-// }
+  console.log({ statuses: statusList })
+  status.bridges = statusList
+}
 
-// scrapeStatus()
+scrapeStatus()
 
-// setInterval(scrapeStatus, 60000)
+setInterval(scrapeStatus, 60000)
 
 router.get("/", (req, res) => {
-  //   res.json("status")
-
-  res.json(getTime())
+    res.json("status")
 })
 
 module.exports = router
