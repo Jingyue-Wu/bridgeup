@@ -6,10 +6,12 @@ const chromium = require("@sparticuz/chromium-min")
 
 export const dynamic = "force-dynamic"
 
-let status = {
-  updated_at: getTime(),
-  bridges: [],
-}
+// let status = {
+//   updated_at: getTime(),
+//   bridges: [],
+// }
+
+let status = null
 
 function getTime() {
   let now = new Date()
@@ -70,10 +72,9 @@ async function scrapeStatus() {
 
   let fetchStatus = true
   let i = 1
-
   while (fetchStatus) {
     let statusValue = await getStatus(
-      `//*[@id="grey_box"]/tbody/tr[${i + 1}]/td/table/tbody/tr/td[2]/p[2]/span`
+      `/html/body/div/table/tbody/tr[${i + 1}]/td/table/tbody/tr/td[2]/p[2]/span`
     )
 
     if (statusValue != null) {
@@ -118,7 +119,8 @@ async function scrapeStatus() {
   browser.close()
 
   console.log({ statuses: statusList })
-  status.bridges = statusList
+  //   status.bridges = statusList
+  status = statusList
 }
 
 scrapeStatus()
@@ -126,7 +128,7 @@ scrapeStatus()
 setInterval(scrapeStatus, 60000)
 
 router.get("/", (req, res) => {
-    res.json(status)
+  res.json(status)
 })
 
 module.exports = router
