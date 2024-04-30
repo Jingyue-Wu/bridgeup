@@ -6,12 +6,12 @@ const chromium = require("@sparticuz/chromium-min")
 
 export const dynamic = "force-dynamic"
 
-// let status = {
-//   updated_at: getTime(),
-//   bridges: [],
-// }
+let status = {
+  updated_at: getTime(),
+  bridges: [],
+}
 
-let status = null
+// let status = null
 
 function getTime() {
   let now = new Date()
@@ -120,7 +120,7 @@ async function scrapeStatus() {
 
   console.log({ statuses: statusList })
   //   status.bridges = statusList
-  status = statusList
+  status.bridges = statusList
 }
 
 scrapeStatus()
