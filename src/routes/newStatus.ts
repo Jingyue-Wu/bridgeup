@@ -53,21 +53,31 @@ async function scrapeStatus() {
 
   async function getStatus(xpath: string, index: number) {
     try {
-      const page = await browser.newPage()
-
       if (index > 5) {
         // south bridges
-        await page.goto(endpoint1)
+        const page1 = await browser.newPage()
+        await page1.goto(endpoint1)
+        const [el] = await page1.$x(xpath)
+        const txt = await el.getProperty("innerText")
+        const rawTxt = await txt.jsonValue()
+
+        return rawTxt
       } else {
         // north bridges
-        await page.goto(endpoint2)
+        const page2 = await browser.newPage()
+        await page2.goto(endpoint2)
+        const [el] = await page2.$x(xpath)
+        const txt = await el.getProperty("innerText")
+        const rawTxt = await txt.jsonValue()
+
+        return rawTxt
       }
 
-      const [el] = await page.$x(xpath)
-      const txt = await el.getProperty("innerText")
-      const rawTxt = await txt.jsonValue()
+      // const [el] = await page.$x(xpath)
+      // const txt = await el.getProperty("innerText")
+      // const rawTxt = await txt.jsonValue()
 
-      return rawTxt
+      // return rawTxt
     } catch (e) {
       return null
     }
