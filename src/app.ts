@@ -1,6 +1,6 @@
 import express from "express"
 import cors from "cors"
-require('dotenv').config()
+require("dotenv").config()
 
 const app = express()
 
@@ -16,8 +16,11 @@ app.get("/", (req, res) => {
   res.send("Bridge Up API: /status, /closures, /map")
 })
 
-const statusRouter = require("./routes/status")
-app.use("/status", statusRouter)
+// const statusRouter = require("./routes/status")
+// app.use("/status", statusRouter)
+
+const newStatusRouter = require("./routes/newStatus")
+app.use("/status", newStatusRouter)
 
 const closuresRouter = require("./routes/closures")
 app.use("/closures", closuresRouter)
