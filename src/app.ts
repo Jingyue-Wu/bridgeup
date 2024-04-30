@@ -22,8 +22,8 @@ app.get("/", (req, res) => {
 const newStatusRouter = require("./routes/newStatus")
 app.use("/status", newStatusRouter)
 
-// const closuresRouter = require("./routes/closures")
-// app.use("/closures", closuresRouter)
+const closuresRouter = require("./routes/closures")
+app.use("/closures", closuresRouter)
 
 const mapRouter = require("./routes/map")
 app.use("/map", mapRouter)
