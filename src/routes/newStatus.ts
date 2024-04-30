@@ -57,7 +57,7 @@ async function scrapeStatus() {
 
       if (index > 5) {
         // south bridges
-        await page.goto(endpoint2)
+        await page.goto(endpoint1)
       } else {
         // north bridges
         await page.goto(endpoint2)
@@ -132,7 +132,6 @@ async function scrapeStatus() {
   browser.close()
 
   console.log({ statuses: statusList })
-  //   status.bridges = statusList
   status.bridges = statusList
 }
 
