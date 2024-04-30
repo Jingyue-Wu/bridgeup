@@ -54,7 +54,7 @@ async function scrapeStatus() {
   async function getStatus(xpath: string, index: number) {
     try {
       if (index > 5) {
-        // south bridges
+        // north bridges
         const page1 = await browser.newPage()
         await page1.goto(endpoint1)
         const [el] = await page1.$x(xpath)
@@ -63,7 +63,7 @@ async function scrapeStatus() {
 
         return rawTxt
       } else {
-        // north bridges
+        // south bridges
         const page2 = await browser.newPage()
         await page2.goto(endpoint2)
         const [el] = await page2.$x(xpath)

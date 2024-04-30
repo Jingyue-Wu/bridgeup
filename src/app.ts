@@ -16,14 +16,14 @@ app.get("/", (req, res) => {
   res.send("Bridge Up API: /status, /closures, /map")
 })
 
-// const statusRouter = require("./routes/status")
-// app.use("/status", statusRouter)
+const statusRouter = require("./routes/status")
+app.use("/status", statusRouter)
 
-const newStatusRouter = require("./routes/newStatus")
-app.use("/status", newStatusRouter)
+// const newStatusRouter = require("./routes/newStatus")
+// app.use("/status", newStatusRouter)
 
-// const closuresRouter = require("./routes/closures")
-// app.use("/closures", closuresRouter)
+const closuresRouter = require("./routes/closures")
+app.use("/closures", closuresRouter)
 
 const mapRouter = require("./routes/map")
 app.use("/map", mapRouter)
