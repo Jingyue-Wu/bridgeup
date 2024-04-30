@@ -51,16 +51,16 @@ async function scrapeStatus() {
     ignoreHttpsErrors: true,
   })
 
-  async function getStatus(xpath: string) {
+  async function getStatus(xpath: string, endpoint: string) {
     try {
       const page = await browser.newPage()
-      await page.goto(endpoint2)
+      await page.goto(endpoint)
 
-      const [el2] = await page.$x(xpath)
-      const txt2 = await el2.getProperty("innerText")
-      const rawTxt2 = await txt2.jsonValue()
+      const [el] = await page.$x(xpath)
+      const txt = await el.getProperty("innerText")
+      const rawTxt = await txt.jsonValue()
 
-      return rawTxt2
+      return rawTxt
     } catch (e) {
       return null
     }
@@ -76,11 +76,23 @@ async function scrapeStatus() {
   let fetchStatus = true
   let i = 1
   while (fetchStatus) {
-    let statusValue = await getStatus(
-      `/html/body/div/table/tbody/tr[${
-        i + 1
-      }]/td/table/tbody/tr/td[2]/p[2]/span`
-    )
+    let statusValue = null
+
+    if (i < 6) {
+      statusValue = await getStatus(
+        `/html/body/div/table/tbody/tr[${
+          i + 1
+        }]/td/table/tbody/tr/td[2]/p[2]/span`,
+        endpoint1
+      )
+    } else {
+      statusValue = await getStatus(
+        `/html/body/div/table/tbody/tr[${
+          i + 1
+        }]/td/table/tbody/tr/td[2]/p[2]/span`,
+        endpoint2
+      )
+    }
 
     if (statusValue != null) {
       const bridgeNames: Record<number, string> = {
