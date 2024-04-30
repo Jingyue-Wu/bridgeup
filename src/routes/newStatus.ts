@@ -51,10 +51,17 @@ async function scrapeStatus() {
     ignoreHttpsErrors: true,
   })
 
-  async function getStatus(xpath: string, endpoint: string) {
+  async function getStatus(xpath: string, index: number) {
     try {
       const page = await browser.newPage()
-      await page.goto(endpoint)
+
+      if (index > 5) {
+        // south bridges
+        await page.goto(endpoint2)
+      } else {
+        // north bridges
+        await page.goto(endpoint1)
+      }
 
       const [el] = await page.$x(xpath)
       const txt = await el.getProperty("innerText")
@@ -76,23 +83,12 @@ async function scrapeStatus() {
   let fetchStatus = true
   let i = 1
   while (fetchStatus) {
-    let statusValue = null
-
-    if (i < 6) {
-      statusValue = await getStatus(
-        `/html/body/div/table/tbody/tr[${
-          i + 1
-        }]/td/table/tbody/tr/td[2]/p[2]/span`,
-        endpoint1
-      )
-    } else {
-      statusValue = await getStatus(
-        `/html/body/div/table/tbody/tr[${
-          i + 1
-        }]/td/table/tbody/tr/td[2]/p[2]/span`,
-        endpoint2
-      )
-    }
+    let statusValue = await getStatus(
+      `/html/body/div/table/tbody/tr[${
+        i + 1
+      }]/td/table/tbody/tr/td[2]/p[2]/span`,
+      i
+    )
 
     if (statusValue != null || i < 9) {
       const bridgeNames: Record<number, string> = {
