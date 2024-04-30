@@ -28,8 +28,11 @@ function getTime() {
 }
 
 async function scrapeStatus() {
-  const endpoint =
+  const endpoint1 =
     "https://seaway-greatlakes.com/bridgestatus/detailsnai?key=BridgeSCT"
+
+  const endpoint2 =
+    "https://seaway-greatlakes.com/bridgestatus/detailsnai?key=BridgePC"
 
   const browser = await puppeteer.launch({
     args: [
@@ -51,7 +54,7 @@ async function scrapeStatus() {
   async function getStatus(xpath: string) {
     try {
       const page = await browser.newPage()
-      await page.goto(endpoint)
+      await page.goto(endpoint2)
 
       const [el2] = await page.$x(xpath)
       const txt2 = await el2.getProperty("innerText")
@@ -74,7 +77,9 @@ async function scrapeStatus() {
   let i = 1
   while (fetchStatus) {
     let statusValue = await getStatus(
-      `/html/body/div/table/tbody/tr[${i + 1}]/td/table/tbody/tr/td[2]/p[2]/span`
+      `/html/body/div/table/tbody/tr[${
+        i + 1
+      }]/td/table/tbody/tr/td[2]/p[2]/span`
     )
 
     if (statusValue != null) {
