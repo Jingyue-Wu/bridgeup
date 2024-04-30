@@ -126,7 +126,7 @@ scrapeStatus()
 setInterval(scrapeStatus, 60000)
 
 router.get("/", (req, res) => {
-    res.json("status")
+    res.json(status)
 })
 
 module.exports = router
