@@ -94,7 +94,7 @@ async function scrapeStatus() {
       )
     }
 
-    if (statusValue != null) {
+    if (statusValue != null || i < 9) {
       const bridgeNames: Record<number, string> = {
         1: "1",
         2: "3A",
