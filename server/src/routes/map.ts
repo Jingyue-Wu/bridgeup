@@ -1,7 +1,6 @@
 import WebSocket from "ws"
 import express from "express"
 const router = express.Router()
-
 const socket = new WebSocket("wss://stream.aisstream.io/v0/stream")
 
 const AISkey = process.env.AIS_KEY
@@ -55,39 +54,44 @@ function updateList(newShip: Ship) {
   for (let i = 0; i < shipList.length; i++) {
     if (shipList[i].id == newShip.id) {
       inList = true
-      shipList[i].latitude = newShip.latitude
-      shipList[i].longitude = newShip.longitude
-      shipList[i].sog = newShip.sog
-      shipList[i].heading = newShip.heading
-      shipList[i].lastUpdated = newShip.lastUpdated
+
+      const shipData = shipList[i]
+      shipData.latitude = newShip.latitude
+      shipData.longitude = newShip.longitude
+      shipData.sog = newShip.sog
+      shipData.heading = newShip.heading
+      shipData.lastUpdated = newShip.lastUpdated
     }
   }
 
   if (!inList) {
     shipList.push(newShip)
     console.log(shipList)
-
-    let currentdate = new Date()
-    let datetime =
-      "Last Sync: " +
-      currentdate.getDay() +
-      "/" +
-      currentdate.getMonth() +
-      "/" +
-      currentdate.getFullYear() +
-      " @ " +
-      currentdate.getHours() +
-      ":" +
-      currentdate.getMinutes() +
-      ":" +
-      currentdate.getSeconds()
-
-    console.log(datetime)
+    console.log(getTime())
   }
 
   shipList = shipList.filter((ship) => {
     return Date.now() - ship.lastUpdated <= 3600000
   })
+}
+
+function getTime() {
+  let currentdate = new Date()
+  let datetime =
+    "Last Sync: " +
+    currentdate.getDay() +
+    "/" +
+    currentdate.getMonth() +
+    "/" +
+    currentdate.getFullYear() +
+    " @ " +
+    currentdate.getHours() +
+    ":" +
+    currentdate.getMinutes() +
+    ":" +
+    currentdate.getSeconds()
+
+  return datetime
 }
 
 router.get("/", (req, res) => {

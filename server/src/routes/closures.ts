@@ -17,14 +17,12 @@ async function scrapeClosures() {
       ...chromium.args,
       "--hide-scrollbars",
       "--disable-web-security",
-      // '--no-sandbox','--disable-setuid-sandbox'
     ],
     defaultViewport: chromium.defaultViewport,
     executablePath: await chromium.executablePath(
       `https://github.com/Sparticuz/chromium/releases/download/v116.0.0/chromium-v116.0.0-pack.tar`
     ),
     headless: chromium.headless,
-    // headless: 'new',
     ignoreHttpsErrors: true,
   })
 
@@ -96,7 +94,6 @@ async function scrapeClosures() {
 }
 
 scrapeClosures()
-
 setInterval(scrapeClosures, 600000)
 
 router.get("/", (req, res) => {

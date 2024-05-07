@@ -9,7 +9,7 @@ app.use(cors())
 const port = 3000
 
 app.listen(port, () => {
-  return console.log(`Server is listening at http://localhost:${port}`)
+  return console.log(`Server is listening at port ${port}`)
 })
 
 app.get("/", (req, res) => {
@@ -18,9 +18,6 @@ app.get("/", (req, res) => {
 
 const statusRouter = require("./routes/status")
 app.use("/status", statusRouter)
-
-// const newStatusRouter = require("./routes/newStatus")
-// app.use("/status", newStatusRouter)
 
 const closuresRouter = require("./routes/closures")
 app.use("/closures", closuresRouter)
