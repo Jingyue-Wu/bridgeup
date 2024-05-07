@@ -67,31 +67,11 @@ function updateList(newShip: Ship) {
   if (!inList) {
     shipList.push(newShip)
     console.log(shipList)
-    console.log(getTime())
   }
 
   shipList = shipList.filter((ship) => {
     return Date.now() - ship.lastUpdated <= 3600000
   })
-}
-
-function getTime() {
-  let currentdate = new Date()
-  let datetime =
-    "Last Sync: " +
-    currentdate.getDay() +
-    "/" +
-    currentdate.getMonth() +
-    "/" +
-    currentdate.getFullYear() +
-    " @ " +
-    currentdate.getHours() +
-    ":" +
-    currentdate.getMinutes() +
-    ":" +
-    currentdate.getSeconds()
-
-  return datetime
 }
 
 router.get("/", (req, res) => {
