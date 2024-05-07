@@ -23,7 +23,7 @@ export default function Card({ bridge, shipData }: CardType) {
 
     shipData.forEach((ship) => {
       const dy = bridgeCoords[bridge.id][0] - ship.latitude
-      // console.log(bridgeCoords[bridge.id][0], ship.latitude, dy)
+
       if (
         (dy > 0 && (ship.heading >= 270 || ship.heading <= 90)) ||
         (dy < 0 && ship.heading < 270 && ship.heading > 90)
@@ -34,15 +34,15 @@ export default function Card({ bridge, shipData }: CardType) {
           ship.latitude,
           ship.longitude
         )
-        // if (ship.speed > 0 || dist < 2) {
+
         distList.push(dist)
         speedList.push(ship.speed)
-        // }
       }
     })
 
     const fastest = getFastest(distList)
     const time = getTime(distList[fastest], speedList[fastest])
+
     setEstimation(time)
     console.log(bridge.id, distList)
   }, [shipData])
@@ -70,8 +70,6 @@ export default function Card({ bridge, shipData }: CardType) {
     return d
   }
 
-  // console.log(getDistance(43.191869, -79.200923, 43.19334833333333, -79.20273999999999))
-
   function getFastest(distList: number[]) {
     let smallestDist = 0
     for (let i = 0; i < distList.length; i++) {
@@ -86,6 +84,7 @@ export default function Card({ bridge, shipData }: CardType) {
 
   function getTime(dist: number, speed: number) {
     let time: number = 0
+
     if (speed < 1) {
       time = dist / 1.25
     } else if (speed == 0) {
@@ -99,6 +98,7 @@ export default function Card({ bridge, shipData }: CardType) {
     }
 
     console.log(dist, speed, time)
+
     if (dist > 2.5) {
       if (time > 10) {
         return time - 3.5
@@ -208,12 +208,6 @@ export default function Card({ bridge, shipData }: CardType) {
         <h1 style={{ color: textCol }} className="text-lg">
           {bridge.name}
         </h1>
-
-        {/* <img
-          className="w-4 h-4 object-cover absolute left-[50%] translate-x-[-2px] translate-y-[-2px]"
-          src="icons/up.svg"
-          alt=""
-        /> */}
 
         <h2
           style={{ color: textCol }}

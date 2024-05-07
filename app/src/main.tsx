@@ -7,7 +7,6 @@ import ErrorPage from "./routes/errorPage.tsx"
 import Status from "./routes/status.tsx"
 import Closures from "./routes/closures.tsx"
 import About from "./routes/about.tsx"
-import PrivacyPolicy from "./routes/privacyPolicy.tsx"
 import Map from "./routes/map.tsx"
 import { Analytics } from "@vercel/analytics/react"
 
@@ -28,10 +27,6 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
-      },
-      {
-        path: "/privacy-policy",
-        element: <PrivacyPolicy />,
       },
       {
         path: "/map",

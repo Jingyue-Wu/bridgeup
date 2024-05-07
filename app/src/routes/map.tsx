@@ -21,12 +21,12 @@ export default function Map() {
   }
 
   useEffect(() => {
-    // console.log(ships)
     updateShips()
   }, [ships])
 
   function updateShips() {
     const newMarkers: MarkerType[] = []
+
     ships.forEach((ship) => {
       const marker = {
         geocode: [ship.latitude, ship.longitude],
@@ -37,6 +37,7 @@ export default function Map() {
       }
       newMarkers.push(marker)
     })
+    
     setMarkers(newMarkers)
     console.log(markers)
   }
