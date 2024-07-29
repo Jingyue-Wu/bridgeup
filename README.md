@@ -7,7 +7,7 @@ Bridge status data is updated every 60 seconds, and closures are updated every 1
 
 Light and dark theme is automatically toggled through device settings.
 
-![image](https://github.com/Jingyue-Wu/bridge-up/assets/75918217/786dcad8-81e8-462e-94e6-8465c0a6cc7c)
+![image](https://github.com/user-attachments/assets/7d9fb7d1-b6bc-49fa-b494-bd17c843e376)
 
 ## Installation Instructions
 
