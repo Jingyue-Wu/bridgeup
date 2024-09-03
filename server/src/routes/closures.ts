@@ -69,8 +69,6 @@ async function scrapeClosures() {
         "21": 8,
       }
 
-      console.log(closure)
-
       let jsonData = {
         id: i + 200,
         bridge_id:
@@ -89,7 +87,6 @@ async function scrapeClosures() {
 
   browser.close()
 
-  console.log({ closures: closureList })
   closures = closureList
 }
 

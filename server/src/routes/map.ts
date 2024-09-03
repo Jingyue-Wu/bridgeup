@@ -18,8 +18,6 @@ interface Ship {
 let shipList: Ship[] = []
 
 socket.onopen = (_) => {
-  console.log("WebSocket connection established")
-
   let subscriptionMessage = {
     Apikey: AISkey,
     BoundingBoxes: [
@@ -66,7 +64,6 @@ function updateList(newShip: Ship) {
 
   if (!inList) {
     shipList.push(newShip)
-    console.log(shipList)
   }
 
   shipList = shipList.filter((ship) => {
