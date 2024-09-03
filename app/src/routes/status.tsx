@@ -14,13 +14,11 @@ export default function Status() {
       .then((response) => response.json())
       .then((data) => {
         setBridges(data.bridges)
-        console.log(data.bridges)
       })
 
     fetch(shipData)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         const newShips: StatusShip[] = []
         data.forEach((ship: ShipType) => {
           const s = {
@@ -34,10 +32,6 @@ export default function Status() {
         setShips(newShips)
       })
   }
-
-  useEffect(() => {
-    console.log(ships)
-  }, [ships])
 
   useEffect(() => {
     fetchData()

@@ -12,7 +12,6 @@ export default function Closures() {
       .then((response) => response.json())
       .then((data) => {
         setClosures(data)
-        console.log(data)
       })
   }
 

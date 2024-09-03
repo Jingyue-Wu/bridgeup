@@ -39,7 +39,6 @@ export default function Map() {
     })
     
     setMarkers(newMarkers)
-    console.log(markers)
   }
 
   useEffect(() => {

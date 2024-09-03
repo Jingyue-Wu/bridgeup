@@ -44,7 +44,6 @@ export default function Card({ bridge, shipData }: CardType) {
     const time = getTime(distList[fastest], speedList[fastest])
 
     setEstimation(time)
-    console.log(bridge.id, distList)
   }, [shipData])
 
   useEffect(() => {
@@ -77,7 +76,6 @@ export default function Card({ bridge, shipData }: CardType) {
         smallestDist = i
       }
     }
-    console.log(smallestDist)
 
     return smallestDist
   }
@@ -96,8 +94,6 @@ export default function Card({ bridge, shipData }: CardType) {
     } else {
       time = dist / speed
     }
-
-    console.log(dist, speed, time)
 
     if (dist > 2.5) {
       if (time > 10) {
